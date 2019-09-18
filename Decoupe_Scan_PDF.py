@@ -1,8 +1,10 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
+# Name:        Decoupe_scan_pdf
+# Purpose:     Permet de recuperer tous les fichiers pdf d'un dossier, de les
+#              convertir en png et de recadrer l'image afin d'enlever le fond
+#              blanc du scanner et d'enregistrer ces images dans un dossier
 #
-# Author:      GAUTHIER
+# Author:      FRIEDERICH Gauthier
 #
 # Created:     18/09/2019
 # Copyright:   (c) GAUTHIER 2019
@@ -10,13 +12,7 @@
 #-------------------------------------------------------------------------------
 import os
 import cv2
-import numpy as np
-##import fitz
 from pdf2image import convert_from_path
-
-#pip install pymupdf
-#pip install fitz
-#Visual C++ 14 required
 
 def conversion_pdf_png(file, path_dossier_png=""):
     if not verification_fichier_est_pdf(file):
@@ -28,6 +24,7 @@ def conversion_pdf_png(file, path_dossier_png=""):
 
 
 def decoupe_png(file):
+    """file  = path_dossier_sortie_png + nom_fichier + .png"""
     if not verification_fichier_est_pdf(file):
         assert False, "Le fichier n'est pas un pdf"
 
